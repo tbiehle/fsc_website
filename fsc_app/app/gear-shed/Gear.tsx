@@ -7,7 +7,7 @@ export default interface GearProps {
   description: string;
   checked_out: boolean;
   size: string;
-  max_checkout: number;
+  max_checkout_days: number;
   img: StaticImageData | null;
   alt: string | null;
 }
