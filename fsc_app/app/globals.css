@@ -29,4 +29,7 @@
   --color-tan-20: #F3F1EF;
   --color-tan-10: #F9F7F6;
   --color-cloud: #FBFBFB;
+
+  /* shared variables */
+  --header-height: 4rem;
 }
