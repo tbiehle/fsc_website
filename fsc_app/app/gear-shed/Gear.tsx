@@ -1,5 +1,3 @@
-import type { StaticImageData } from "next/image";
-
 export default interface GearProps {
   gear_name: string;
   gear_type: string; // backpack, tent, sleeping_bag, sleeping_pad, crash_pad
@@ -8,6 +6,6 @@ export default interface GearProps {
   checked_out: boolean;
   size: string;
   max_checkout_days: number;
-  img: StaticImageData | null;
+  cloud_storage_path: string | null;
   alt: string | null;
 }

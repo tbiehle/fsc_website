@@ -13,7 +13,7 @@ const GearPreview: React.FC<GearPreviewProps> = ({ gear }) => {
           {/* image */}
           <div className="relative flex-none w-3/10 aspect-square overflow-hidden rounded-xl">
             <Image
-              src={gear.img ?? ""}
+              src={gear.cloud_storage_path ?? ""}
               alt={gear.alt ?? ""}
               loading="eager"
               fill

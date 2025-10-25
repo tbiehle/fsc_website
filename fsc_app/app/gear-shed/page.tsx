@@ -2,7 +2,6 @@
 
 import GearPreview from "./components/GearPreview";
 import Gear from "./Gear";
-import backpackimg from "./../../public/gg60.png"
 import { useEffect, useState } from "react";
 import { db } from "@/src/lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
@@ -17,7 +16,7 @@ const gear1: Gear = {
   checked_out: false,
   size: "Men's LG",
   max_checkout_days: 7,
-  img: backpackimg,
+  cloud_storage_path: "/gg60.png",
   alt: "A backpack."
 };
 
@@ -27,6 +26,7 @@ export default function GearShed() {
   useEffect(() => {
     const gearRef = collection(db, "gear");
     
+    // create_gear();
   }, []);
 
   return (
