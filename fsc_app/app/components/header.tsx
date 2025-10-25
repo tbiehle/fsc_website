@@ -8,7 +8,6 @@ export default function Header() {
           src={"/FSC_Logo_Big.svg"}
           alt={"The field studies logo."}
           fill
-          objectFit="contain"
         ></Image>
       </div>
     </div>
