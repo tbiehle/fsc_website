@@ -1,6 +1,6 @@
 import { db, storage } from "@/src/lib/firebase";
 import { ref, uploadBytes } from "firebase/storage";
-import { doc, addDoc, collection } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 
 import Gear from "@/app/gear-shed/Gear"
 
