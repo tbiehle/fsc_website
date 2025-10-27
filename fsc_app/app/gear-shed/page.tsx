@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import GearPreview from "./components/GearPreview";
-import Gear from "./Gear";
+import Gear from "./GearProps";
 import { useEffect, useState } from "react";
 import { db } from "@/src/lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
@@ -17,7 +17,7 @@ const gear1: Gear = {
   size: "Men's LG",
   max_checkout_days: 7,
   cloud_storage_path: "/gg60.png",
-  alt: "A backpack."
+  alt: "A backpack.",
 };
 
 export default function GearShed() {
@@ -25,7 +25,7 @@ export default function GearShed() {
 
   useEffect(() => {
     const gearRef = collection(db, "gear");
-    
+
     // create_gear();
   }, []);
 
