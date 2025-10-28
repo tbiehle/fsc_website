@@ -14,14 +14,13 @@ const TextInput: React.FC<inputProps> = ({ label, placeholder, name }) => {
           {label.charAt(0).toUpperCase() + label.slice(1)}
         </label>
       )}
-      <input
-        className="w-full md:w-sm bg-cloud/30 rounded-xs outline-tan-80 focus:outline-clay transition outline-2 p-2
-        text-md font-dmsans caret-clay"
+      <textarea
+        className="w-full md:w-sm max-h-30 bg-cloud/30 rounded-xs outline-tan-80 focus:outline-clay transition outline-2 p-2
+        text-md font-dmsans caret-clay field-sizing-content"
         id={label}
         name={name}
-        type="text"
         placeholder={placeholder.charAt(0).toUpperCase() + placeholder.slice(1)}
-      ></input>
+      ></textarea>
     </div>
   );
 };

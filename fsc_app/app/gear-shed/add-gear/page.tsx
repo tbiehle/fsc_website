@@ -36,7 +36,9 @@ export default function AddGearForm() {
       .then((snapshot) => snapshot.metadata.fullPath);
 
     console.log(new_gear);
-    addDoc(collection(db, "gear"), new_gear);
+    await addDoc(collection(db, "gear"), new_gear);
+
+    alert("success!");
   };
 
   return (
@@ -55,8 +57,10 @@ export default function AddGearForm() {
               "Tent",
               "Sleeping Bag",
               "Sleeping Pad",
-              "Crash Pad",
-              "Headlamp",
+              "Cookware",
+              "Climbing Gear",
+              "Accessory",
+              "Other"
             ]}
           ></DropdownInput>
           <TextInput
@@ -79,6 +83,9 @@ export default function AddGearForm() {
               "1P",
               "2P",
               "3P",
+              "R",
+              "RW",
+              "LW"
             ]}
           ></DropdownInput>
           <TextInput
