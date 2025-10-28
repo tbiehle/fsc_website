@@ -60,6 +60,8 @@ export default function AddGearForm() {
               "Cookware",
               "Climbing Gear",
               "Accessory",
+              "Headlamp",
+              "Bear Can",
               "Other"
             ]}
           ></DropdownInput>
