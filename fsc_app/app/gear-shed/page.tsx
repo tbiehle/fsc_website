@@ -30,7 +30,7 @@ export default function GearShed() {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       {gear.map((g, idx) => (<GearPreview key={idx} gear={g} />))}
     </div>
   );
