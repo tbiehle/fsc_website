@@ -1,29 +1,31 @@
 "use client";
 
-import GearPreview from "./components/GearPreview";
+import GearPreview from "./components/ProductPreview";
 import GearProps from "./GearProps";
 import { useEffect, useState } from "react";
 import { db } from "@/src/lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import ProductProps from "./ProductProps";
 
 export default function GearShed() {
-  const [gear, setGear] = useState<GearProps[]>([]);
+  const [products, setProducts] = useState<ProductProps[]>([]);
 
-  const fetchGear = async () => {
-    const snapshot = await getDocs(collection(db, "gear"));
-    const db_gear = snapshot.docs.map((doc) => ({
+  const fetchProducts = async () => {
+    const snapshot = await getDocs(collection(db, "products"));
+    const db_products = snapshot.docs.map((doc) => ({
       id: doc.id,
-      ...(doc.data() as GearProps),
+      ...(doc.data() as ProductProps),
     }));
 
-    return db_gear;
+    console.log(db_products)
+    return db_products;
   }
 
   useEffect(() => {
     const loadGear = async () => {
-      const fetched_gear = await fetchGear();
+      const fetched_gear = await fetchProducts();
       console.log(fetched_gear)
-      setGear(fetched_gear);
+      setProducts(fetched_gear);
     }
 
     loadGear();
@@ -31,7 +33,7 @@ export default function GearShed() {
 
   return (
     <div className="flex flex-col items-center">
-      {gear.map((g, idx) => (<GearPreview key={idx} gear={g} />))}
+      {products.map((p, idx) => (<GearPreview key={idx} product={p} />))}
     </div>
   );
 }

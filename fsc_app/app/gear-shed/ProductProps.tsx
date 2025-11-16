@@ -1,5 +1,5 @@
 export default interface ProductProps {
-  gear_name: string;
+  name: string;
   gear_type: string; // backpack, tent, sleeping_bag, sleeping_pad, crash_pad
   description: string;
   quantity: number;

@@ -1,20 +1,20 @@
-import Gear from "../GearProps";
+import Product from "../ProductProps";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "@/src/lib/firebase";
 
-interface GearPreviewProps {
-  gear: Gear;
+interface ProductProps {
+  product: Product;
 }
 
-const GearPreview: React.FC<GearPreviewProps> = ({ gear }) => {
+const ProductPreview: React.FC<ProductProps> = ({ product }) => {
   const [loading, setLoading] = useState(true);
   const [img, setImg] = useState("");
 
   useEffect(() => {
     const fetchImage = async () => {
-      const image_ref = ref(storage, gear.cloud_storage_path ?? "");
+      const image_ref = ref(storage, product.cloud_storage_path ?? "");
       const url = await getDownloadURL(image_ref);
       console.log(url);
       setImg(url);
@@ -32,7 +32,7 @@ const GearPreview: React.FC<GearPreviewProps> = ({ gear }) => {
           <div className="relative flex-none w-3/10 m-1.5 aspect-square overflow-hidden rounded-lg">
             <Image
               src={img ?? null}
-              alt={gear.alt ?? ""}
+              alt={product.alt ?? ""}
               loading="eager"
               fill
               // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -46,29 +46,26 @@ const GearPreview: React.FC<GearPreviewProps> = ({ gear }) => {
               <div className="flex h-fit justify-between m-0">
                 {/* gear number and availability */}
                 <div className="text-h1 font-markazi font-bold truncate max-w-35">
-                  {gear.gear_name}
+                  {product.name}
                 </div>
                 <div className="text-p1 self-center bg-mist p-1 px-2 rounded-2xl">
-                  {gear.checked_out ? "Unavailable" : "Available"}
+                  {product.available > 0 ? `Available: ${product.available}` : "Unavailable"}
                 </div>
               </div>
               <div className="flex h-fit justify-between">
                 {/* gear name and size */}
                 <div className="text-p1 font-dmsans font-bold m-0">
-                  {gear.gear_type.charAt(0).toUpperCase() +
-                    gear.gear_type.slice(1)}{" "}
-                  #{gear.gear_number}
+                  {product.gear_type.charAt(0).toUpperCase() +
+                    product.gear_type.slice(1)}{" "}
                 </div>
                 <div className="w-0.5 h-full bg-tan-80 rounded-sm"></div>
                 <div className="flex text-p1 font-dmsans m-0">
-                  <p>Size:&nbsp;</p>
-                  <p className="font-bold">{gear.size}</p>
                 </div>
               </div>
               <div className="flex flex-col justify-end">
                 <div className="font-dmsans text-p1 text-ellipsis h-fit line-clamp-2">
                   {/* gear description */}
-                  {gear.description}
+                  {product.description}
                 </div>
               </div>
             </div>
@@ -79,4 +76,4 @@ const GearPreview: React.FC<GearPreviewProps> = ({ gear }) => {
   );
 };
 
-export default GearPreview;
+export default ProductPreview;
