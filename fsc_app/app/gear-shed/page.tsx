@@ -1,6 +1,6 @@
 "use client";
 
-import GearPreview from "./components/ProductPreview";
+import ProductPreview from "./components/ProductPreview";
 import GearProps from "./GearProps";
 import { useEffect, useState } from "react";
 import { db } from "@/src/lib/firebase";
@@ -33,7 +33,7 @@ export default function GearShed() {
 
   return (
     <div className="flex flex-col items-center">
-      {products.map((p, idx) => (<GearPreview key={idx} product={p} />))}
+      {products.map((p, idx) => (<ProductPreview key={idx} product={p} />))}
     </div>
   );
 }
